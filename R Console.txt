@@ -1,0 +1,75 @@
+
+R version 4.0.2 (2020-06-22) -- "Taking Off Again"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.72 (7847) x86_64-apple-darwin17.0]
+
+[History restored from /Users/michelle/.Rapp.history]
+
+> source("/Users/michelle/Documents/Module4/15) R_Analysis/MechaCarChallenge/mecha_car_challenge/mecha challenge.R")
+Error in source("/Users/michelle/Documents/Module4/15) R_Analysis/MechaCarChallenge/mecha_car_challenge/mecha challenge.R") : 
+  /Users/michelle/Documents/Module4/15) R_Analysis/MechaCarChallenge/mecha_car_challenge/mecha challenge.R:15:135: unexpected '='
+14: suspension_coil <- read.csv(file='Suspension_Coil.csv',check.names=F,stringsAsFactors = F)
+15: statistcal_table <- suspension_coil %>% group_by(PSI) %>% summarize(Mean_PSI=mean(PSI),Median_PSI=median(PSI),Standard_Deviation_PSI()=
+                                                                                                                                          ^
+> mecha_car <- read.csv(file='MechaCar_mpg.csv',check.names=F,stringsAsFactors = F)
+Error in file(file, "rt") : cannot open the connection
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file 'MechaCar_mpg.csv': No such file or directory
+> lm(mpg ~ AWD, data = mecha_car)
+Error in is.data.frame(data) : object 'mecha_car' not found
+> summary(lm(mpg~AWD,mecha_car))
+Error in is.data.frame(data) : object 'mecha_car' not found
+> mecha_model <- lm(mpg ~ AWD, mecha_car)
+Error in is.data.frame(data) : object 'mecha_car' not found
+> yvals <- mecha_model$coefficients['hp']*mecha_car$mpg +
++   +     mecha_model$coefficients['(Intercept)'] #determine y-axis values from linear model
+Error: object 'mecha_model' not found
+> plt <- ggplot(mecha_model,aes(x=mpg,y=AWD))
+Error in ggplot(mecha_model, aes(x = mpg, y = AWD)) : 
+  could not find function "ggplot"
+> plt + geom_point() + geom_line(aes(y=yvals), color = "red") #plot scatter and linear model
+Error: object 'plt' not found
+> names(mecha_car) = str_replace_all(names(mecha_car), c(" " = "_"))
+Error in str_replace_all(names(mecha_car), c(` ` = "_")) : 
+  could not find function "str_replace_all"
+> regression <- lm(mpg ~ AWD + vehicle_length + vehicle_weight + spoiler_angle + ground_clearance,data=mecha_car)
+Error in is.data.frame(data) : object 'mecha_car' not found
+> summary(regression)
+Error in summary(regression) : object 'regression' not found
+> ## Mean, Median, Variance, Standard Deviation
+> suspension_coil <- read.csv(file='Suspension_Coil.csv',check.names=F,stringsAsFactors = F)
+Error in file(file, "rt") : cannot open the connection
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file 'Suspension_Coil.csv': No such file or directory
+> statistcal_table <- suspension_coil %>% group_by(PSI) %>% summarize(Mean_PSI=mean(PSI),Median_PSI=median(PSI),Standard_Deviation_PSI()=sd(PSI),Variance_PSI()=var(PSI)) 
+Error: unexpected '=' in "statistcal_table <- suspension_coil %>% group_by(PSI) %>% summarize(Mean_PSI=mean(PSI),Median_PSI=median(PSI),Standard_Deviation_PSI()="
+> summarize_PSI <- suspension_coil %>% summarize(Mean_PSI=mean(PSI), Median_PSI=median(PSI), Variance=var(PSI),StandardDev_PSI=sd(PSI))#create summary table
+Error in suspension_coil %>% summarize(Mean_PSI = mean(PSI), Median_PSI = median(PSI),  : 
+  could not find function "%>%"
+> ## T-TEST
+> t.test(suspension_coil$PSI,mu=summarize_PSI$Mean_PSI) #compare sample versus population means
+Error in t.test(suspension_coil$PSI, mu = summarize_PSI$Mean_PSI) : 
+  object 'suspension_coil' not found
+> summarize_PSI$Mean_PSI
+Error: object 'summarize_PSI' not found
+> 
+> 
+> 
