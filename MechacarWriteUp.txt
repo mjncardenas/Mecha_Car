@@ -1,0 +1,74 @@
+#Mechacar Write Up
+
+##MPG Regression
+###Regression Summary
+Call:
+lm(formula = mpg ~ AWD + vehicle_length + vehicle_weight + spoiler_angle + 
+    ground_clearance, data = mecha_car)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-19.4701  -4.4994  -0.0692   5.4433  18.5849 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      -1.040e+02  1.585e+01  -6.559 5.08e-08 ***
+AWD              -3.411e+00  2.535e+00  -1.346   0.1852    
+vehicle_length    6.267e+00  6.553e-01   9.563 2.60e-12 ***
+vehicle_weight    1.245e-03  6.890e-04   1.807   0.0776 .  
+spoiler_angle     6.877e-02  6.653e-02   1.034   0.3069    
+ground_clearance  3.546e+00  5.412e-01   6.551 5.21e-08 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Residual standard error: 8.774 on 44 degrees of freedom
+Multiple R-squared:  0.7149,	Adjusted R-squared:  0.6825 
+F-statistic: 22.07 on 5 and 44 DF,  p-value: 5.35e-11
+
+
+•Which variables/coefficients provided a non-random amount of variance to the mpg values in the dataset?
+	The variables/coefficients that have a non-random amount of variance are: AWD, vehicle length, vehicle weight, spoiler angle, and ground clearance.
+•Is the slope of the linear model considered to be zero? Why or why not?
+	Most of the slopes have negative slopes. AWD has a slope of -3.411e+00, vehicle weight has a slope of 1.245e0-3 and the spoiler angle has a slope of 6.877e-02. The ones that have positive slopes are vehicle length and ground clearance. The variable/coefficient that is close to zero is the spoiler angle. This means that it does not have a strong correlation with the mpg. 
+• Does this linear model predict mpg of MechaCar prototypes effectively? Why or why not?
+	Due to the fact that the R value is 0.7149, this shows that 71.49% of the predictions will be correct. 
+
+•ANOVA test
+	In the ANOVA test, it shows that vehicle weight, and ground clearance are important because their Pr(>ltl) scores are extremely small. 
+
+
+##T-Test
+One Sample t-test
+
+data:  suspension_coil$PSI
+t = 0, df = 149, p-value = 1
+alternative hypothesis: true mean is not equal to 1498.78
+95 percent confidence interval:
+ 1497.507 1500.053
+sample estimates:
+mean of x 
+  1498.78 
+
+Th t-test was very positive because there is a 95% confidence interval.
+
+##Mean, Median, Variance, Standard Deviation
+ VehicleID Manufacturing_Lot          PSI
+nbr.val         NA                NA 1.500000e+02
+nbr.null        NA                NA 0.000000e+00
+nbr.na          NA                NA 0.000000e+00
+min             NA                NA 1.452000e+03
+max             NA                NA 1.542000e+03
+range           NA                NA 9.000000e+01
+sum             NA                NA 2.248170e+05
+median          NA                NA 1.500000e+03
+mean            NA                NA 1.498780e+03
+SE.mean         NA                NA 6.444303e-01
+CI.mean         NA                NA 1.273403e+00
+var             NA                NA 6.229356e+01
+std.dev         NA                NA 7.892627e+00
+coef.var        NA                NA 5.266034e-03
+The mean of the PSI is 1498.78 and the median is 1500. Since the  mean and the median are only 1.22 points away, this shows that the data has a symmetrical distribution. The standard deviation of the data is about 7.89. This shows that the data points are not too close or too far from one another. The variance is about 62.292 which tells is us how dispersed the data is. 
+ 
+
+##Design Your Own Study
+	For my own study, I would like to compare the safety and price of Mechacars to other comparable vehicles. I would like to compare price and safety because I believe people decide to buy which car depending on how much they earn. They also look for the safest cars to protect themselves and their family members. My question for this project will be, “Are Mechacars safer and cheaper compared to the comparable vehicles?” My null hypothesis will be a “no” and my alternative hypothesis will be a “yes.” For this study, I would like to compare the prices of each vehicle. I would also like to compare safety measurements of each vehicle like the disk brake, ABS, AWD or the 4WD, traction control, number of airbags automatic braking and if the cars have rearview cameras. 
+
